@@ -10,7 +10,7 @@ apply plugin: 'idea'
 apply plugin: 'application'
 
 sourceCompatibility = 11
-version = '1.0.0'
+version = '0.0.1'
 group = 'com.steel_eyed.Numeric'
 description = "\n${name} Project\nVersion: ${version}"
 mainClassName = "com.steel_eyed.Numeric.Main"
@@ -28,25 +28,25 @@ repositories {
 repositories {
      localRepository {
          dirs ( '/usr/share/java',
-	        '/usr/share/java/slf4j',
-	        '/usr/share/java/hamcrest',
-	        '/opt/mine' )
+	            '/usr/share/java/slf4j',
+	            '/usr/share/java/hamcrest',
+	            '/opt/mine' )
      }
 }
 
 dependencies {
 	implementation ( [ group: 'org.apache.log4j', name: 'log4j', version: '1.2.17' ],
-                  [ group: 'org.slf4j', name: 'slf4j-api', version: '1.7.18' ],
-		  [ group: 'com.steel_eyed.General', name: 'libGeneral', version: '1.0.+' ] )
+                     [ group: 'org.slf4j', name: 'slf4j-api', version: '1.7.18' ],
+		             [ group: 'com.steel_eyed.General', name: 'libGeneral', version: '1.0.+' ] )
 	testImplementation( [ group: 'org.junit', name: 'junit', version: '4.+' ],
-                      [ group: 'org.hamcrest', name: 'core', version: '1.3-13' ] )
+                        [ group: 'org.hamcrest', name: 'core', version: '1.3-13' ] )
 }
 
-jar {
+makeJar {
     manifest {
         attributes 'Implementation-Title': 'Numeric',
-                   'Implementation-Version': version,
-       		   'Main-Class': mainClassName,
-       		   'Class-Path': configurations.compile.collect { it }.join(' ')
+                   'Implementation-Version': archiveVersion,
+                   'Main-Class': mainClassName,
+                   'Class-Path': configurations.compileClasspath.collect { it }.join(' ')
     }
 }
