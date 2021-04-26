@@ -8,13 +8,16 @@ package com.steel_eyed.Numeric;
  */
 public class Fibonacci {
     /**
-     * Return the Fibonacci number of passed number
+     * Return the Fibonacci number of passed number. Uses recursion, which is the
+     * simplest method but also the least time efficient.
+     * 
      * @param number long
      * @return long
      */
     public static long fibonacci( long number ) {
-        if( number < 0 )
+        if( number < 0 ) {
             throw new RuntimeException( number + ": out of bounds" );
+        }
         return number == 0 || number == 1 ? number :
                 fibonacci( number - 1 ) + fibonacci( number - 2 );
     }
@@ -36,8 +39,9 @@ public class Fibonacci {
      */
     public static long[] fibonacciSequence( int start, int end ) {
        long[] results = new long[ end - start + 1 ];
-        for( int counter = start; counter <= end; counter++ )
+        for( int counter = start; counter <= end; counter++ ) {
             results[ counter ] = fibonacci( counter );
+        }
         return results;
     }
 }

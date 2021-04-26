@@ -1,5 +1,7 @@
 # Fibonacci
 
+A programming exercise to calculate a Fibonacci number.
+
 From [Wikipedia](https://en.wikipedia.org/wiki/Fibonacci_number):
 In mathematics, the Fibonacci numbers are the numbers in the following integer sequence, called the Fibonacci sequence, and characterized by the fact that every number after the first two is the sum of the two preceding ones:
 
@@ -9,11 +11,11 @@ Often, especially in modern usage, the sequence is extended by one more initial 
 
 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
 
-This class will produce either a single Fibonaci number:
+This class will produce either a single Fibonacci number:
 
 	long f = fibonaci( 20 );
 
-or a seqennce:
+or a sequence:
 
 	long[] f = fibonaciSequence( 1, 20 );
 
