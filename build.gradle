@@ -5,9 +5,11 @@
  *
  */
 
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'application'
+plugins {
+    id 'java'
+    id 'idea'
+    id 'application'
+}
 
 sourceCompatibility = 11
 version = '0.0.1'
@@ -15,38 +17,16 @@ group = 'com.steel_eyed.Numeric'
 description = "\n${name} Project\nVersion: ${version}"
 mainClassName = "com.steel_eyed.Numeric.Main"
 
-/*
- * Use filesystem as local repositories.
- *
- */
 repositories {
     flatDir {
-        name 'localRepository'
+        dirs '/usr/share/java'
+        dirs '/usr/share/javadoc'
+        dirs '/usr/share/java/hamcrest'
     }
-}
-
-repositories {
-     localRepository {
-         dirs ( '/usr/share/java',
-	            '/usr/share/java/slf4j',
-	            '/usr/share/java/hamcrest',
-	            '/opt/mine' )
-     }
 }
 
 dependencies {
-	implementation ( [ group: 'org.apache.log4j', name: 'log4j', version: '1.2.17' ],
-                     [ group: 'org.slf4j', name: 'slf4j-api', version: '1.7.18' ],
-		             [ group: 'com.steel_eyed.General', name: 'libGeneral', version: '1.0.+' ] )
-	testImplementation( [ group: 'org.junit', name: 'junit', version: '4.+' ],
-                        [ group: 'org.hamcrest', name: 'core', version: '1.3-13' ] )
-}
-
-makeJar {
-    manifest {
-        attributes 'Implementation-Title': 'Numeric',
-                   'Implementation-Version': archiveVersion,
-                   'Main-Class': mainClassName,
-                   'Class-Path': configurations.compileClasspath.collect { it }.join(' ')
-    }
+    implementation     'org.apache.log4j:log4j:1.2.17'
+    testImplementation 'org.junit:junit:4.+'
+    testImplementation 'org.hamcrest:core:1.3-13'
 }
