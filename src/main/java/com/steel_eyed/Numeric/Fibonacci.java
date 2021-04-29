@@ -10,7 +10,7 @@ public class Fibonacci {
     /**
      * Return the Fibonacci number of passed number. Uses recursion, which is the
      * simplest method but also the least time efficient.
-     * 
+     *
      * @param number long
      * @return long
      */
